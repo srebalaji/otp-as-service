@@ -1,25 +1,69 @@
-#OTP As Service
+# OTP As Service
+A simple otp micro-service built using NodeJS and GraphQL
 
-1. Request to create otp via email or sms.
+## Usage
+1. Clone the repo.
+2. npm i.
+3. node index.js
 
-2. Request to authenticate the otp.
+## DOCS
 
-3. Set the number of times the retries can happen.
-
-4. Have a template to send otp (have default template too)
-
-5. Have a otp type. (number or alpha numeria)
-
-6. Have a time limit for verification
-
-7. Resend otp
-{
-  active: true,
-  source: "sms",
-  otp: "1234",
-  sent: false,
-  retries: 0,
-  isAuthenticated: false,
-  contactNumber: "999999999",
-  email: "example@graphql.com",
+### 1. Create OTP
+```
+mutation {
+  createOtp(otp: {
+    source: "sms",
+    contactNumber: "99999",
+    template: "Custom template is ##OTP##" // Optional field
+  }) {
+    id
+  }
 }
+```
+
+### 2. Authenticate OTP
+```
+mutation {
+  authenticateOtp(otp: {
+    source: "sms",
+    contactNumber: "99999",
+    otp: "nodg3"
+  }) {
+    result
+  }
+}
+```
+
+### 3. Resend OTP
+```
+mutation {
+  resendOtp(otp: {
+    source: "email",
+    email: "sre@df.com"
+  }) {
+    result
+  }
+}
+```
+
+### 4. List all active services
+```
+query {
+  active {
+    id
+    otp
+    active
+  }
+}
+```
+
+#### 5. List all services
+```
+query {
+  all {
+    id
+    otp
+    active
+  }
+}
+```
