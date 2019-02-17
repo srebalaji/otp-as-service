@@ -13,8 +13,8 @@ A simple otp micro-service built using NodeJS and GraphQL
 ```
 mutation {
   createOtp(otp: {
-    source: "sms",
-    contactNumber: "99999",
+    source: "sms", // Source can be 'sms' or 'email'
+    contactNumber: "99999", // Contact number or email should be provided based on the source
     template: "Custom template is ##OTP##" // Optional field
   }) {
     id
