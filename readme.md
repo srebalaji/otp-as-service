@@ -4,7 +4,8 @@ A simple otp micro-service built using NodeJS and GraphQL
 ## Usage
 1. Clone the repo.
 2. npm i.
-3. node index.js
+3. node index.js.
+4. Visit localhost:4000/graphql
 
 ## DOCS
 
@@ -57,7 +58,7 @@ query {
 }
 ```
 
-#### 5. List all services
+### 5. List all services
 ```
 query {
   all {
