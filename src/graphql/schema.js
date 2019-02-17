@@ -2,7 +2,8 @@ const { buildSchema } = require('graphql')
 
 module.exports = buildSchema(`
 type Query {
-  info: String!
+  all: [Otp]
+  active: [Otp]
 }
 
 type Mutation {
@@ -18,6 +19,7 @@ type Otp {
   retries: Int!
   isAuthenticated: Boolean!
   template: String!
+  active: Boolean!
 }
 
 type response {

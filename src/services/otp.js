@@ -23,8 +23,14 @@ const handleResendOtp = (args) => {
   throw new Error('No source is provided.')
 }
 
+const all = () => handleOtpService.all()
+
+const active = () => handleOtpService.active()
+
 module.exports = {
   handleOtp,
   handleAuthenticateOtp,
   handleResendOtp,
+  all,
+  active,
 }

@@ -67,7 +67,13 @@ const buildRelevantOtp = (args) => {
 
 const resendOtp = args => ({ result: 'success' })
 
+const all = async () => Otp.find({ })
+
+const active = async () => Otp.find({ active: true })
+
 module.exports = {
   buildRelevantOtp,
   resendOtp,
+  all,
+  active,
 }
